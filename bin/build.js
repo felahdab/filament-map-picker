@@ -1,6 +1,6 @@
 import esbuild from 'esbuild'
 
-const isDev = process.argv.includes('--dev')
+const isDev = true
 
 async function compile(options) {
     const context = await esbuild.context(options)

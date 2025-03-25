@@ -26,6 +26,7 @@ class Map extends Field implements MapOptions
         'draggable'            => true,
         'showMarker'           => true,
         'tilesUrl'             => 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'tilesUrlDark'         => 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
         'attribution'          => null,
         'zoomOffset'           => -1,
         'tileSize'             => 512,
@@ -170,13 +171,24 @@ class Map extends Field implements MapOptions
     }
 
     /**
-     * Set tiles url
+     * Set tiles url for light mode
      * @param string $url
      * @return $this
      */
     public function tilesUrl(string $url): self
     {
         $this->mapConfig['tilesUrl'] = $url;
+        return $this;
+    }
+
+    /**
+     * Set tiles url for dark mode
+     * @param string $url
+     * @return $this
+     */
+    public function tilesUrlDark(string $url): self
+    {
+        $this->mapConfig['tilesUrlDark'] = $url;
         return $this;
     }
 
@@ -221,33 +233,6 @@ class Map extends Field implements MapOptions
     public function markerColor(string $color): self
     {
         $this->mapConfig['markerColor'] = $color;
-        return $this;
-    }
-
-
-    /**
-     * Enable or disable live location updates for the map.
-     * @param bool $send
-     * @return $this
-     */
-    public function liveLocation(bool $send = true, bool $realtime = false, int $milliseconds = 5000): self
-    {
-        $this->mapConfig['liveLocation'] = [
-            'send' => $send,
-            'realtime' => $realtime,
-            'milliseconds' => $milliseconds
-        ];
-        return $this;
-    }
-
-    /**
-     * Enable or disable show my location button on map.
-     * @param bool $showMyLocationButton
-     * @return $this
-     */
-    public function showMyLocationButton(bool $showMyLocationButton = true): self
-    {
-        $this->mapConfig['showMyLocationButton'] = $showMyLocationButton;
         return $this;
     }
 

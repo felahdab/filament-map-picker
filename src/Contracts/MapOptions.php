@@ -20,6 +20,8 @@ interface MapOptions
 
     public function tilesUrl(string $url): self;
 
+    public function tilesUrlDark(string $url): self;
+
     public function detectRetina(bool $detectRetina = true): self;
 
     public function showZoomControl(bool $show = true): self;
@@ -31,6 +33,4 @@ interface MapOptions
     public function extraTileControl(array $control): self;
 
     public function markerColor(string $color): self;
-
-    public function liveLocation(bool $send = false, bool $realtime = false, int $milliseconds = 5000): self;
 }
